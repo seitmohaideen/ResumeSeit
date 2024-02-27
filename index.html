@@ -46,10 +46,11 @@
     });
 
 	  // Smooth scrolling
-        document.querySelectorAll('a.nav-link').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+        document.querySelectorAll('.toggle-button').forEach(button => {
+            button.addEventListener('click', function () {
+                const sectionId = this.getAttribute('data-section-id');
+                const section = document.getElementById(sectionId);
+                section.scrollIntoView({
                     behavior: 'smooth'
                 });
             });
@@ -59,32 +60,7 @@
 </head>
 
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll">
-        <div class="container">
-            <a class="navbar-brand" href="#">Seit</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#recommendation">Recommendation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-
+    
 		<!-- Background color palette -->
                 <div class="color-palette">
                     <button class="color-button"></button>
@@ -95,9 +71,6 @@
                     <button class="color-button"></button>
                 </div>
                 
-            </div>
-        </div>
-    </nav>
     <!-- main banner -->
     <section class="bgimage" id="home">
         <div class="container-fluid">
@@ -107,6 +80,17 @@
                 <p class="hero_desc">Senior Data Analyst with expertise in SQL, Unix and Data Analysis.</p>
             </div>
             </div>
+
+<!-- toggle buttons for navigation -->
+    <div class="toggle-buttons">
+        <button class="toggle-button" data-section-id="home"><i class="fas fa-home"></i></button>
+        <button class="toggle-button" data-section-id="about"><i class="fas fa-user"></i></button>
+        <button class="toggle-button" data-section-id="skills"><i class="fas fa-cogs"></i></button>
+        <button class="toggle-button" data-section-id="recommendation"><i class="fas fa-thumbs-up"></i></button>
+        <button class="toggle-button" data-section-id="contact"><i class="fas fa-envelope"></i></button>
+    </div>
+
+		
         </div>
     </section>
 
