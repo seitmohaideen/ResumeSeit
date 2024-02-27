@@ -8,7 +8,7 @@
     height:100vh;
     background: url('seitbg1.jpg');
     background-size:auto;
-    position:relative;
+    position: center;
 }
 /* text css above hero image*/
 .hero_title {
