@@ -84,32 +84,45 @@
 
 /* Skill bar styling */
 .skill-bar {
-    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
 }
 
 .skill {
-    margin-bottom: 10px;
+    width: calc(33.333% - 20px);
+    margin-bottom: 20px;
 }
 
 .skill-name {
-    font-weight: bold;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .skill-level {
-    background-color: #f0f0f0;
-    height: 20px;
-    border-radius: 10px;
     position: relative;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
     overflow: hidden;
 }
 
-.skill-level-bar {
+.progress-bar {
     height: 100%;
-    background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red); /* Rainbow gradient background */
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 0;
-    transition: width 1s ease-in-out; /* Smooth transition animation */
+    background-color: #007bff;
+    border-radius: 5px;
+    animation: fillProgress 2s forwards;
+}
+
+.progress {
+    height: 100%;
+    background-color: #fff;
+}
+
+/* Animation for progress bars */
+@keyframes fillProgress {
+    from { width: 0; }
+    to { width: 100%; }
 }
