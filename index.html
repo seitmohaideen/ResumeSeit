@@ -90,6 +90,35 @@
         });
     });
   </script>
+
+	<script>
+    // JavaScript to handle navigation
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show the selected section when a toggle button is clicked
+        document.querySelectorAll('.toggle-button').forEach(button => {
+            button.addEventListener('click', function () {
+                const sectionId = this.getAttribute('data-section-id');
+                const section = document.getElementById(sectionId);
+                // Hide all sections
+                document.querySelectorAll('section').forEach(sec => {
+                    sec.style.display = 'none';
+                });
+                // Show the selected section
+                section.style.display = 'block';
+            });
+        });
+
+        // Smooth scroll effect for navbar links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+  </script>
 </head>
 
 <body>
