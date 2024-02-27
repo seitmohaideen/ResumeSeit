@@ -18,8 +18,9 @@
     .color-palette {
         display: none;
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: calc(100% + 10px);
+        left: 0;
+        z-index: 999;
     }
 
     .color-button {
@@ -30,32 +31,6 @@
         cursor: pointer;
         outline: none;
         border-radius: 50%;
-    }
-
-    /* Toggle buttons styling */
-    .toggle-buttons {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 999;
-    }
-
-    .toggle-button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-        margin: 0 5px;
-        cursor: pointer;
-        outline: none;
-    }
-
-    .toggle-button:hover {
-        background-color: #0056b3;
     }
 
     /* Change Theme button styling */
@@ -96,61 +71,36 @@
     const colors = ['#f5f5f5', '#eaeaea', '#dcdcdc', '#ff0000', '#00ff00', '#0000ff']; // Add more colors if needed
 
     document.addEventListener('DOMContentLoaded', function() {
-        const buttons = document.querySelectorAll('.color-button');
-        
-        buttons.forEach((button, index) => {
-            button.style.backgroundColor = colors[index];
+        const colorPalette = document.querySelector('.color-palette');
+        const toggleButton = document.querySelector('.toggle-color-button');
+
+        colors.forEach(color => {
+            const button = document.createElement('button');
+            button.className = 'color-button';
+            button.style.backgroundColor = color;
             button.addEventListener('click', () => {
-                document.body.style.backgroundColor = colors[index];
+                document.body.style.backgroundColor = color;
             });
+            colorPalette.appendChild(button);
         });
 
-        // Show the selected section when a toggle button is clicked
-        document.querySelectorAll('.toggle-button').forEach(button => {
-            button.addEventListener('click', function () {
-                const sectionId = this.getAttribute('data-section-id');
-                const section = document.getElementById(sectionId);
-                // Hide all sections
-                document.querySelectorAll('section').forEach(sec => {
-                    sec.style.display = 'none';
-                });
-                // Show the selected section
-                section.style.display = 'block';
-            });
-        });
-
-        // Toggle color palette on click
-        document.querySelector('.toggle-color-button').addEventListener('click', function () {
-            const colorPalette = document.querySelector('.color-palette');
+        toggleButton.addEventListener('click', () => {
             colorPalette.style.display = (colorPalette.style.display === 'block') ? 'none' : 'block';
-        });
-
-        // Apply color on click
-        document.querySelectorAll('.color-button').forEach(button => {
-            button.addEventListener('click', function () {
-                document.body.style.backgroundColor = this.style.backgroundColor;
-            });
         });
     });
   </script>
+	
 </head>
 
 <body>
     
-		
-         <!-- Change Theme button -->
-    <button class="toggle-color-button">Change Theme</button>
-
-    <!-- Background color palette -->
-    <div class="color-palette">
-        <button class="color-button" style="background-color: #f5f5f5;"></button>
-        <button class="color-button" style="background-color: #eaeaea;"></button>
-        <button class="color-button" style="background-color: #dcdcdc;"></button>
-        <button class="color-button" style="background-color: #ff0000;"></button>
-        <button class="color-button" style="background-color: #00ff00;"></button>
-        <button class="color-button" style="background-color: #0000ff;"></button>
-    </div>
-            
+    <!-- Change Theme button -->
+    <button class="toggle-color-button">Change Theme
+        <!-- Background color palette -->
+        <div class="color-palette">
+            <!-- Color buttons will be generated dynamically here -->
+        </div>
+    </button>
                 
     <!-- main banner -->
     <section class="bgimage" id="home">
