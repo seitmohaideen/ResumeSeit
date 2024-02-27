@@ -90,18 +90,6 @@
   }
 }
 
-body {
-  font-family: -apple-system, system-ui, Helvetica, Arial, sans-serif;
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: #f2f2f2;
-  max-width: 800px;
-  height: 100vh;
-}
-
 .eb-progress-bar {
   --size: 4.5rem;
   --inner-bg: #f2f2f2;
