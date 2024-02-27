@@ -3,6 +3,12 @@
     background-color: black;
 }
 
+/* Light theme */
+.light-theme {
+    background-color: #f5f5f5; /* Light background color */
+    color: #333; /* Dark text color */
+}
+
 /* hero background image */
 .bgimage {
     height:100vh;
