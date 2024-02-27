@@ -30,7 +30,38 @@
         outline: none;
         border-radius: 50%;
     }
-  </style>
+
+    /* Toggle buttons styling */
+    .toggle-buttons {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+    }
+
+    .toggle-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        margin: 0 5px;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .toggle-button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Hide sections by default */
+    section {
+        display: none;
+    }
+</style>
   <script>
     const colors = ['#f5f5f5', '#eaeaea', '#dcdcdc', '#ff0000', '#00ff00', '#0000ff']; // Add more colors if needed
 
@@ -43,16 +74,18 @@
                 document.body.style.backgroundColor = colors[index];
             });
         });
-    });
 
-	  // Smooth scrolling
+        // Show the selected section when a toggle button is clicked
         document.querySelectorAll('.toggle-button').forEach(button => {
             button.addEventListener('click', function () {
                 const sectionId = this.getAttribute('data-section-id');
                 const section = document.getElementById(sectionId);
-                section.scrollIntoView({
-                    behavior: 'smooth'
+                // Hide all sections
+                document.querySelectorAll('section').forEach(sec => {
+                    sec.style.display = 'none';
                 });
+                // Show the selected section
+                section.style.display = 'block';
             });
         });
     });
@@ -80,15 +113,6 @@
                 <p class="hero_desc">Senior Data Analyst with expertise in SQL, Unix and Data Analysis.</p>
             </div>
             </div>
-
-<!-- toggle buttons for navigation -->
-    <div class="toggle-buttons">
-        <button class="toggle-button" data-section-id="home"><i class="fas fa-home"></i></button>
-        <button class="toggle-button" data-section-id="about"><i class="fas fa-user"></i></button>
-        <button class="toggle-button" data-section-id="skills"><i class="fas fa-cogs"></i></button>
-        <button class="toggle-button" data-section-id="recommendation"><i class="fas fa-thumbs-up"></i></button>
-        <button class="toggle-button" data-section-id="contact"><i class="fas fa-envelope"></i></button>
-    </div>
 
 		
         </div>
@@ -308,6 +332,15 @@
                 <a href="https://www.twitch.tv/" target="_blank"><i class="fab fa-twitch"></i></a>
             </div>
         </div>
+ <!-- toggle buttons for navigation -->
+    <div class="toggle-buttons">
+        <button class="toggle-button" data-section-id="home"><i class="fas fa-home"></i></button>
+        <button class="toggle-button" data-section-id="about"><i class="fas fa-user"></i></button>
+        <button class="toggle-button" data-section-id="skills"><i class="fas fa-cogs"></i></button>
+        <button class="toggle-button" data-section-id="recommendation"><i class="fas fa-thumbs-up"></i></button>
+        <button class="toggle-button" data-section-id="contact"><i class="fas fa-envelope"></i></button>
+    </div>
+	    
     </footer>
 
     <!-- load javascript after loading all html content -->
