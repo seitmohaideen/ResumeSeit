@@ -7,7 +7,7 @@
 .bgimage {
     height:100vh;
     background: url('seitbg1.jpg');
-    background-size: 50%;
+   /* background-size: 50%;*/
     position: center;
 }
 /* text css above hero image*/
