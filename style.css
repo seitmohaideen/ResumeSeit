@@ -176,18 +176,5 @@
     .skill6 .skill-count6 {
         right: 0;
     }
-/* GITHUB SOURCE STYLE  */
-.github-source{
-	float:right;
-	display:block;
-	color:#fff;
-	margin:0 20px;
-	position: relative;
-	z-index:999999;
-	top:0;
-}
-.github-source i{
-	font-size:50px;
-	color:#000
-}
+
 
