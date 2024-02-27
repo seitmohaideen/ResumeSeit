@@ -59,9 +59,38 @@
         background-color: #0056b3;
     }
 
-    /* Hide sections by default */
-    section {
-        display: none;
+    /* Change Theme button styling */
+    .toggle-color-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        outline: none;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+        }
+
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+        }
+
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+        }
     }
 </style>
   <script>
@@ -110,9 +139,8 @@
 
 <body>
     
-		
-         <!-- Change Theme button -->
-    <button class="toggle-color-button" style="position: fixed; bottom: 20px; right: 20px;">Change Theme</button>
+    <!-- Change Theme button -->
+    <button class="toggle-color-button">Change Theme</button>
 
     <!-- Background color palette -->
     <div class="color-palette">
@@ -123,7 +151,6 @@
         <button class="color-button" style="background-color: #00ff00;"></button>
         <button class="color-button" style="background-color: #0000ff;"></button>
     </div>
-            
                 
     <!-- main banner -->
     <section class="bgimage" id="home">
