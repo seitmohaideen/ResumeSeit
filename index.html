@@ -91,64 +91,12 @@
     });
   </script>
 
-	<script>
-    // JavaScript to handle navigation
-    document.addEventListener('DOMContentLoaded', function() {
-        // Show the selected section when a toggle button is clicked
-        document.querySelectorAll('.toggle-button').forEach(button => {
-            button.addEventListener('click', function () {
-                const sectionId = this.getAttribute('data-section-id');
-                const section = document.getElementById(sectionId);
-                // Hide all sections
-                document.querySelectorAll('section').forEach(sec => {
-                    sec.style.display = 'none';
-                });
-                // Show the selected section
-                section.style.display = 'block';
-            });
-        });
-
-        // Smooth scroll effect for navbar links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    });
-  </script>
+	
 </head>
 
 <body>
     
-		<!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll">
-        <div class="container">
-            <a class="navbar-brand" href="#">Seit</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#recommendation">Recommendation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-
+		
                 <!-- Background color palette -->
                 <div class="color-palette">
                     <button class="color-button"></button>
@@ -158,9 +106,7 @@
                     <button class="color-button"></button>
                     <button class="color-button"></button>
                 </div>
-            </div>
-        </div>
-    </nav>
+            
                 
     <!-- main banner -->
     <section class="bgimage" id="home">
