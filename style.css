@@ -1,13 +1,13 @@
 /* display background color black on navbar scroll */
 .navbarScroll.navbarDark {
-    background-color: black;
+    background-color: red;
 }
 
 /* hero background image */
 .bgimage {
     height:100vh;
     background: url('seitbg1.jpg');
-    background-size:auto;
+    background-size: 50%;
     position: center;
 }
 /* text css above hero image*/
