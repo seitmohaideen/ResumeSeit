@@ -11,7 +11,7 @@ function toggleSection(sectionId) {
     document.getElementById(sectionId).style.display = 'block';
 }
 
-// Function to change theme
+// Function to toggle color palette
 function toggleColorPalette() {
     // Toggle the visibility of the color palette
     var colorPalette = document.querySelector('.color-palette');
@@ -34,4 +34,3 @@ document.querySelectorAll('.toggle-button').forEach(button => {
 document.querySelector('.toggle-color-button').addEventListener('click', function() {
     toggleColorPalette();
 });
-
