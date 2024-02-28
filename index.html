@@ -182,15 +182,18 @@
 </style>
 
 <script>
-	// Function to handle the toggle color button
+	// Array of theme colors
+    const themeColors = ['#f5f5f5', '#eaeaea', '#dcdcdc', '#ff0000', '#00ff00', '#0000ff'];
+
+    // Function to apply selected theme color
+    function applyThemeColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+
+    // Function to handle the toggle color button
     function toggleColorPalette() {
         const colorPalette = document.querySelector('.color-palette');
         colorPalette.style.display = (colorPalette.style.display === 'block') ? 'none' : 'block';
-    }
-
-    // Function to apply color on click
-    function applyColor(color) {
-        document.body.style.backgroundColor = color;
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -200,20 +203,15 @@
         // Apply color on click
         document.querySelectorAll('.color-button').forEach(button => {
             button.addEventListener('click', function () {
-                applyColor(this.style.backgroundColor);
+                applyThemeColor(this.style.backgroundColor);
             });
         });
 
-        // Toggle sections on click
-        document.querySelectorAll('.toggle-button').forEach(button => {
-            button.addEventListener('click', function () {
-                const sectionId = this.getAttribute('data-section-id');
-                const section = document.getElementById(sectionId);
-                document.querySelectorAll('section').forEach(sec => {
-                    sec.style.display = 'none';
-                });
-                section.style.display = 'block';
-            });
+        // Toggle between theme colors
+        let currentThemeIndex = 0;
+        document.querySelector('.toggle-color-button').addEventListener('click', function() {
+            currentThemeIndex = (currentThemeIndex + 1) % themeColors.length;
+            applyThemeColor(themeColors[currentThemeIndex]);
         });
     });
 
