@@ -183,18 +183,26 @@
 
 <body>
     
-    <!-- Change Theme button -->
-    <button class="toggle-color-button" onclick="toggleColorPalette()">Change Theme</button>
+   <!-- Toggle buttons for switching between pages -->
+<div class="toggle-buttons">
+  <button class="toggle-button" onclick="togglePage('home')">Home</button>
+  <button class="toggle-button" onclick="togglePage('about')">About</button>
+  <button class="toggle-button" onclick="togglePage('skills')">Skills</button>
+  <button class="toggle-button" onclick="togglePage('recommendation')">Recommendation</button>
+</div>
 
-    <!-- Background color palette -->
-    <div class="color-palette">
-        <button class="color-button" style="background-color: #f5f5f5;"></button>
-        <button class="color-button" style="background-color: #eaeaea;"></button>
-        <button class="color-button" style="background-color: #dcdcdc;"></button>
-        <button class="color-button" style="background-color: #ff0000;"></button>
-        <button class="color-button" style="background-color: #00ff00;"></button>
-        <button class="color-button" style="background-color: #0000ff;"></button>
-    </div>
+<!-- Change Theme button -->
+<button class="toggle-color-button" onclick="toggleColorPalette()">Change Theme</button>
+
+<!-- Background color palette -->
+<div class="color-palette">
+  <button class="color-button" style="background-color: #f5f5f5;" onclick="changeThemeColor('#f5f5f5')"></button>
+  <button class="color-button" style="background-color: #eaeaea;" onclick="changeThemeColor('#eaeaea')"></button>
+  <button class="color-button" style="background-color: #dcdcdc;" onclick="changeThemeColor('#dcdcdc')"></button>
+  <button class="color-button" style="background-color: #ff0000;" onclick="changeThemeColor('#ff0000')"></button>
+  <button class="color-button" style="background-color: #00ff00;" onclick="changeThemeColor('#00ff00')"></button>
+  <button class="color-button" style="background-color: #0000ff;" onclick="changeThemeColor('#0000ff')"></button>
+</div>
 
      <!-- Ripple background -->
     <div class="ripple-background">
@@ -399,18 +407,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
-    <script>
-        function toggleColorPalette() {
-            const palette = document.querySelector('.color-palette');
-            palette.style.display = palette.style.display === 'none' ? 'block' : 'none';
-        }
+  <script>
+  // Function to toggle color palette visibility
+  function toggleColorPalette() {
+    var colorPalette = document.querySelector('.color-palette');
+    colorPalette.style.display = (colorPalette.style.display === 'block') ? 'none' : 'block';
+  }
 
-        document.querySelectorAll('.color-button').forEach(button => {
-            button.addEventListener('click', function() {
-                const color = this.style.backgroundColor;
-                document.body.style.backgroundColor = color;
-            });
-        });
-    </script>
+  // Function to change theme color
+  function changeThemeColor(color) {
+    document.documentElement.style.setProperty('--theme-color', color);
+  }
+
+  // Function to toggle between pages
+  function togglePage(pageId) {
+    var pages = document.querySelectorAll('.page');
+    pages.forEach(function(page) {
+      page.style.display = 'none';
+    });
+    document.getElementById(pageId).style.display = 'block';
+  }
+</script>
 </body>
 </html>
