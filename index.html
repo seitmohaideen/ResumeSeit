@@ -181,43 +181,37 @@
     }
 </style>
   <script>
-    const colors = ['#f5f5f5', '#eaeaea', '#dcdcdc', '#ff0000', '#00ff00', '#0000ff']; // Add more colors if needed
+     // Function to handle the toggle color button
+    function toggleColorPalette() {
+        const colorPalette = document.querySelector('.color-palette');
+        colorPalette.style.display = (colorPalette.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Function to apply color on click
+    function applyColor(color) {
+        document.body.style.backgroundColor = color;
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
-        const buttons = document.querySelectorAll('.color-button');
-        
-        buttons.forEach((button, index) => {
-            button.style.backgroundColor = colors[index];
-            button.addEventListener('click', () => {
-                document.body.style.backgroundColor = colors[index];
-            });
-        });
-
-        // Show the selected section when a toggle button is clicked
-        document.querySelectorAll('.toggle-button').forEach(button => {
-            button.addEventListener('click', function () {
-                const sectionId = this.getAttribute('data-section-id');
-                const section = document.getElementById(sectionId);
-                // Hide all sections
-                document.querySelectorAll('section').forEach(sec => {
-                    sec.style.display = 'none';
-                });
-                // Show the selected section
-                section.style.display = 'block';
-            });
-        });
-
-	     document.addEventListener('DOMContentLoaded', function() {
         // Toggle color palette on click
-        document.querySelector('.toggle-color-button').addEventListener('click', function () {
-            const colorPalette = document.querySelector('.color-palette');
-            colorPalette.style.display = (colorPalette.style.display === 'block') ? 'none' : 'block';
-        });
+        document.querySelector('.toggle-color-button').addEventListener('click', toggleColorPalette);
 
         // Apply color on click
         document.querySelectorAll('.color-button').forEach(button => {
             button.addEventListener('click', function () {
-                document.body.style.backgroundColor = this.style.backgroundColor;
+                applyColor(this.style.backgroundColor);
+            });
+        });
+
+        // Toggle sections on click
+        document.querySelectorAll('.toggle-button').forEach(button => {
+            button.addEventListener('click', function () {
+                const sectionId = this.getAttribute('data-section-id');
+                const section = document.getElementById(sectionId);
+                document.querySelectorAll('section').forEach(sec => {
+                    sec.style.display = 'none';
+                });
+                section.style.display = 'block';
             });
         });
     });
