@@ -13,14 +13,18 @@ function toggleSection(sectionId) {
 
 // Function to toggle color palette
 function toggleColorPalette() {
-    // Toggle the visibility of the color palette
     var colorPalette = document.querySelector('.color-palette');
-    if (colorPalette.style.display === 'none') {
+    if (colorPalette.style.display === 'none' || colorPalette.style.display === '') {
         colorPalette.style.display = 'block';
     } else {
         colorPalette.style.display = 'none';
     }
 }
+
+// Add event listener to change theme button
+document.querySelector('.toggle-color-button').addEventListener('click', function() {
+    toggleColorPalette();
+});
 
 // Add event listeners to toggle buttons
 document.querySelectorAll('.toggle-button').forEach(button => {
@@ -30,7 +34,3 @@ document.querySelectorAll('.toggle-button').forEach(button => {
     });
 });
 
-// Add event listener to change theme button
-document.querySelector('.toggle-color-button').addEventListener('click', function() {
-    toggleColorPalette();
-});
