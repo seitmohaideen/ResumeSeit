@@ -1,6 +1,9 @@
-/* display background color black on navbar scroll */
-.navbarScroll.navbarDark {
-    background-color: black;
+/* Hide color palette by default */
+.color-palette {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 /* Light theme */
